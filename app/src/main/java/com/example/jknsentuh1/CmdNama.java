@@ -17,7 +17,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class CmdNama extends AppCompatActivity {
 
     private GestureDetector gestureDetector;
     private Vibrator vibrator;
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private Thread brailleVibrationThread;
     private boolean isVibrationStarted = false; // Flag untuk menandai apakah getaran telah dimulai
     private boolean isVibrating = false; // Flag untuk menandai apakah getaran sedang berlangsung
+    private boolean isVibrationFinished = false; // Flag untuk menandai apakah getaran telah selesai
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
             controller.hide(WindowInsets.Type.systemBars());
             controller.setSystemBarsBehavior(WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
         }
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.cmd_nama);
 
         // Mengatur padding untuk system bars
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main_main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main_cmd_nama), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -59,15 +60,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
                 float diffY = e2.getY() - e1.getY();
-
-                // Cek apakah getaran sudah dimulai dan tidak sedang bergetar
-                if (!isVibrationStarted || isVibrating) {
-                    return false; // Mencegah swipe jika getaran belum dimulai atau sedang berlangsung
-                }
-
+                // Mendeteksi swipe dari bawah ke atas
                 if (Math.abs(diffY) > SWIPE_THRESHOLD && Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
                     if (diffY < 0) {  // Swipe dari bawah ke atas
-                        performSwipeAction();
+                        // Cek apakah getaran telah selesai
+                        if (isVibrationFinished) {
+                            performSwipeAction(); // Panggil metode untuk melakukan tindakan swipe
+                        }
                         return true;
                     }
                 }
@@ -75,19 +74,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        View mainView = findViewById(R.id.main_main);
+        View mainView = findViewById(R.id.main_cmd_nama);
         mainView.setOnTouchListener((v, event) -> gestureDetector.onTouchEvent(event));
 
-        // Menjalankan getaran Braille setelah 2 detik
+        // Menambahkan jeda 2 detik sebelum memulai getaran Braille "Masukkan Nama Lengkap Anda"
         handler.postDelayed(() -> {
             isVibrationStarted = true; // Set flag untuk menandai bahwa getaran telah dimulai
-            playBrailleVibration("ABC");
+            playBrailleVibration("ABC"); // Ganti "ABC" dengan teks yang sesuai
         }, 2000);
     }
 
     // Fungsi untuk melakukan tindakan swipe
     private void performSwipeAction() {
-        // Hentikan getaran Braille jika sedang berjalan
+        // Hentikan getaran Braille "Masukkan Nama Lengkap Anda"
         if (brailleVibrationThread != null && brailleVibrationThread.isAlive()) {
             brailleVibrationThread.interrupt(); // Menghentikan thread yang sedang berjalan
         }
@@ -109,13 +108,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        // Setelah getaran, pindah ke cmd_nik.java
+        // Setelah getaran, pindah ke BrailleKeyboardNama.java
         openNextActivity();
     }
 
-    // Memulai cmd_nik.java
+    // Memulai BrailleKeyboardNama.java
     private void openNextActivity() {
-        Intent intent = new Intent(MainActivity.this, CmdNik.class);
+        Intent intent = new Intent(CmdNama.this, BrailleKeyboardNama.class);
         startActivity(intent);
     }
 
@@ -146,7 +145,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
+            isVibrationStarted = false; // Reset flag setelah getaran selesai
             isVibrating = false; // Setel isVibrating ke false setelah selesai getaran
+            isVibrationFinished = true; // Tandai bahwa getaran telah selesai
         });
         brailleVibrationThread.start();
     }

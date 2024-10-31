@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main_cmd_nik"
+    android:id="@+id/main_cmd_nama"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f5f5f5"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp">
+
     <TextView
-        android:id="@+id/nikText"
+        android:id="@+id/namaText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Masukkan NIK Anda"
+        android:gravity="center"
+        android:text="Masukkan Nama Anda"
         android:textColor="#000"
-        android:textSize="24sp"
-        android:gravity="center" />
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/Hint1"
@@ -32,5 +33,5 @@
         android:layout_marginBottom="20dp"
         android:gravity="center"
         android:text="Terdapat jeda 2 detik sebelum getaran dimulai"
-        android:textSize="10sp"/>
+        android:textSize="10sp" />
 </LinearLayout>
