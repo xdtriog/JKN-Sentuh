@@ -22,13 +22,7 @@ public class TranslateNik extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Mengatur tampilan fullscreen dengan menghilangkan system bars
-        getWindow().setDecorFitsSystemWindows(false);
-        WindowInsetsController controller = getWindow().getInsetsController();
-        if (controller != null) {
-            controller.hide(WindowInsets.Type.systemBars());
-            controller.setSystemBarsBehavior(WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
-        }
+
         setContentView(R.layout.translate_nik);
 
         translatedTextView = findViewById(R.id.translatedTextView);

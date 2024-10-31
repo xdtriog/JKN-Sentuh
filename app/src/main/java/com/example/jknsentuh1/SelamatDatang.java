@@ -28,13 +28,7 @@ public class SelamatDatang extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        // Mengatur tampilan fullscreen dengan menghilangkan system bars
-        getWindow().setDecorFitsSystemWindows(false);
-        WindowInsetsController controller = getWindow().getInsetsController();
-        if (controller != null) {
-            controller.hide(WindowInsets.Type.systemBars());
-            controller.setSystemBarsBehavior(WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
-        }
+
         setContentView(R.layout.selamat_datang);
 
         // Mengatur padding untuk system bars
