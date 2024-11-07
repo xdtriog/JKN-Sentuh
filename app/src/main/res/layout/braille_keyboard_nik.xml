@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_braille_keyboard_nama"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/dot1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:text="1"
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/dot3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:text="3"
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dot1" />
+
+    <Button
+        android:id="@+id/dot5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:text="5"
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dot3" />
+
+    <Button
+        android:id="@+id/dot2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="4dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:text="2"
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dot1" />
+
+    <Button
+        android:id="@+id/dot4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="4dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:text="4"
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dot3" />
+
+    <Button
+        android:id="@+id/dot6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="4dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:text="6"
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dot5" />
+
+    <TextView
+        android:id="@+id/tempTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/circleIndicator"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/circle_shape"
+        app:layout_constraintTop_toBottomOf="@id/Hint1"
+        app:layout_constraintStart_toStartOf="@id/Hint1"
+        app:layout_constraintEnd_toEndOf="@id/Hint1"/>
+
+    <TextView
+        android:id="@+id/Hint1"
+        android:layout_width="78dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="28dp"
+        android:gravity="center"
+        android:text="Swipe dari bawah ke atas untuk lanjut ke halaman selanjutnya"
+        android:textSize="10sp"
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dot6"
+        app:layout_constraintStart_toEndOf="@+id/dot5" />
+
+    <TextView
+        android:id="@+id/Hint2"
+        android:layout_width="78dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="Swipe dari kiri ke kanan untuk menconfirm input"
+        android:textSize="10sp"
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintEnd_toStartOf="@+id/dot2"
+        app:layout_constraintStart_toEndOf="@+id/dot1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Hint3"
+        android:layout_width="78dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="132dp"
+        android:gravity="center"
+        android:text="Swipe dari kanan ke kiri untuk delete"
+        android:textSize="10sp"
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintEnd_toStartOf="@+id/dot4"
+        app:layout_constraintStart_toEndOf="@+id/dot3"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

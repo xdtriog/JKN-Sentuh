@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_cmd_nama"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/namaText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Masukkan Nama Ibu"
+        android:textColor="#000"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/Hint1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:text="Swipe dari bawah ke atas untuk lanjut ke halaman selanjutnya"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/Hint3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="Terdapat jeda 2 detik sebelum getaran dimulai"
+        android:textSize="10sp" />
+    <View
+        android:id="@+id/circleIndicator"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/circle_shape" />
+</LinearLayout>
